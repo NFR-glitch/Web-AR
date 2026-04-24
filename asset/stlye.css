@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+/* HEADER */
+header {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 20px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.1); /* transparan */
+    backdrop-filter: blur(10px);          /* 🔥 efek blur */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+
+    color: white;
+    z-index: 1000;}
+
+header h1 {
+  font-size: 28px;
+}
+.jumbotron{
+    position: relative;
+    height: 700px;
+    background-image: url(/asset/foto/hutan\ jawa.webp);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+.overlay{
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: translate(-50);
+    color: white;
+    text-align: left;
+    max-width: 450px;
+
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 30px;
+}
+
+.hero h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+/* CONTAINER */
+.container2 {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 40px;
+}
+
+/* CARD */
+.card {
+    flex: 1;
+    height: 250px;
+    perspective: 1000px;
+}
+
+/* INNER */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* FLIP */
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.card-front,.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+/* FRONT */
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* BACK */
+.card-back {
+    background: #1e293b;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 10px;
+    text-align: left;
+}
+/* AR AREA */
+#ar-container {
+  width: 360px;
+  /* ukuran HP */
+  height: 640px;
+  /* tinggi HP */
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #333;
+  position: relative;
+}
+/* INFO PANEL */
+.info {
+  padding: 20px;
+  text-align: center;
+  background: #1e293b;
+}
+
+.info h3 {
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 20px;
+  background: #22c55e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #16a34a;
+}
+/*creator*/
+.creator{
+    text-align: center;
+    padding: 20px;
+}
+.creator h2{
+    margin-bottom: 40px;
+}
+.list{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.profile{
+text-align: center;
+}
+
+.profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile h3,p{
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.profile img {
+    transition: 0.3s;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+

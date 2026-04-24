@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunia Hewan AR</title>
+    <link rel="stylesheet" href="/asset/stlye.css">
+
+    <!-- AFRAME + MINDAR -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+</head>
+
+<div>
+
+    <!-- HEADER -->
+    <header>
+    <div class="jumbotron">
+            <header>
+                <h1>🐾 Dunia Hewan AR</h1>
+                <p>Belajar hewan dengan Augmented Reality</p>
+            </header>
+
+            <div class="overlay">
+            <h1>Hutan Jawa</h1>
+            <p>Hutan Jawa bukan sekadar hamparan hijau yang menghiasi lanskap nusantara, melainkan sebuah benteng terakhir bagi
+            keanekaragaman hayati yang tak ternilai harganya. Di balik rimbunnya kanopi jati dan mahoni, terjalin simfoni kehidupan
+            antara predator puncak seperti Macan Tutul Jawa yang misterius dengan primata endemik seperti Owa Jawa yang lincah.
+            Setiap sudut hutan ini menyimpan cerita tentang perjuangan satwa liar dalam menjaga keseimbangan ekosistem. Melindungi
+            hutan Jawa berarti menjamin keberlangsungan napas bagi ratusan spesies unik yang tidak akan ditemukan di belahan bumi
+            mana pun, memastikan bahwa warisan alam ini tetap utuh bagi generasi mendatang.</p>
+        </div>
+    </div>
+    <div class="container2">
+        <!-- CARD 1 -->
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="/asset/foto/monyet.jpeg" alt="monyet">
+                </div>
+                <div class="card-back">
+                    <h3>Monyet</h3>
+                    <p>Monyet adalah istilah untuk semua anggota primata yang bukan prosimia ("pra-kera", seperti lemur
+                        dan tarsius) atau kera, baik yang tinggal di Dunia Lama maupun Dunia Baru. Hingga saat ini
+                        dikenal 264 jenis monyet yang hidup di dunia. Tidak seperti kera, monyet biasanya berekor dan
+                        berukuran lebih kecil. Monyet diketahui dapat belajar dan menggunakan alat untuk membantunya
+                        dalam mendapatkan makanan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="/asset/foto/gajah.jpg" alt="gajah">
+                </div>
+                <div class="card-back">
+                    <h3>Gajah</h3>
+                    <p>Gajah atau biram adalah mamalia besar dari famili Elephantidae dan ordo Proboscidea. Secara
+                        tradisional, terdapat dua spesies yang diakui, yaitu gajah afrika dan gajah asia,walaupun
+                        beberapa bukti menunjukkan bahwa gajah semak afrika dan gajah
+                        hutan afrika adalah spesies yang berbeda . Gajah tersebar di seluruh Afrika sub-Sahara, Asia
+                        Selatan, dan Asia Tenggara. Elephantidae adalah satu-satunya
+                        famili dari ordo Proboscidea yang masih ada; famili lain yang kini sudah punah termasuk mamut
+                        dan mastodon.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="/asset/foto/harimau.jpeg" alt="harimau">
+                </div>
+                <div class="card-back">
+                    <h3>harimau</h3>
+                    <p>Harimau (Panthera tigris) atau macan loreng adalah kucing besar dan anggota genus Panthera
+                        yang berasal dari Asia. Hewan ini memiliki tubuh yang kekar dan berotot dengan kepala dan
+                        kaki yang besar, ekor yang panjang, serta bulu berwarna jingga dengan loreng-loreng hitam
+                        yang sebagian besar vertikal. Secara tradisional, harimau diklasifikasikan ke dalam sembilan
+                        subspesies terkini, meskipun beberapa ahli hanya mengakui dua subspesies, yaitu harimau
+                        daratan Asia dan harimau kepulauan di Kepulauan Sunda.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Arahkan kamera ke marker</h2>
+    <p>Klik hewan untuk melihat informasi</p>
+</section>
+
+<!-- AR AREA -->
+    <div id="ar-container">
+        <a-scene embedded mindar-image="imageTargetSrc: badak.mind; uiScanning: no;">
+            <a-assets>
+                <a-asset-item id="model3D" src="./badak.glb"></a-asset-item>
+            </a-assets>
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+            <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+            <a-entity mindar-image-target="targetIndex: 0">
+                <a-entity gltf-model="#model3D" class="clickable" klik-hewan scale="1 1 1">
+                </a-entity>
+            </a-entity>
+        </a-scene>
+
+    </div>
+    </div>
+    <!-- INFO -->
+<section class="info">
+    <h3>Informasi Hewan</h3>
+    <p id="info-text">Klik hewan di AR untuk melihat info</p>
+
+    <button class="btn" onclick="location.reload()">Reset AR</button>
+</section>
+    <!-- creator-->
+<div class="creator">
+    <h2>Creator</h2>
+
+    <div class="list">
+        <div class="profile">
+            <img src="/asset/foto/sempel.jpg">
+            <h3>Nama</h3>
+            <p>NIM</p>
+        </div>
+
+        <div class="profile">
+            <img src="/asset/foto/sempel.jpg">
+            <h3>Nama</h3>
+            <p>NIM</p>
+        </div>
+
+        <div class="profile">
+            <img src="/asset/foto/sempel.jpg">
+            <h3>Nama</h3>
+            <p>NIM</p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/asset/script/ar.js"></script>
+
+</body>
+
+</html>
