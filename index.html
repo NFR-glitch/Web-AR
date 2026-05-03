@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunia Hewan AR</title>
+    <link rel="stylesheet" href="asset/stlye.css">
+
+    <!-- AFRAME + MINDAR -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://unpkg.com/aframe-gesture-detector@3.3.0/dist/aframe-gesture-detector.min.js"></script>
+    <script src="https://unpkg.com/aframe-gesture-handler@3.3.0/dist/aframe-gesture-handler.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="jumbotron">
+        <h1>🐾 Dunia Hewan Nusantara</h1>
+        <p>Mengenal Satwa Dengan Augmnetasi Reality </p>
+    </header>
+
+    <!-- CAROUSEL SECTION  -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0">🐘</span>
+                <span class="dot" data-slide="1">🦎</span>
+                <span class="dot" data-slide="2">🐒</span>
+                <span class="dot" data-slide="3">🦏</span>
+                <span class="dot" data-slide="4">🐅</span>
+            </div>
+
+            <!-- Single Big Image + Info -->
+            <div class="hero-image-container">
+                <div class="hero-image active" data-slide="0">
+                    <img src="asset/foto/gajah.jpg" alt="Gajah">
+                    <div class="hero-overlay">
+                        <h2>🐘 Gajah </h2>
+                        <p>Mamalia terbesar di darat dengan belalai panjang dan gading kuat.</p>
+                        <div class="hero-facts">
+                            <span>📏 4m tinggi</span>
+                            <span>⚖️ 6 ton</span>
+                            <span>🌍 Afrika</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image" data-slide="1">
+                    <img src="asset/foto/komodo.jpg" alt="Komodo">
+                    <div class="hero-overlay">
+                        <h2>🦎 Komodo</h2>
+                        <p>Kadal terbesar di dunia dari Pulau Komodo, Indonesia.</p>
+                        <div class="hero-facts">
+                            <span>📏 3m panjang</span>
+                            <span>🦷 Beracun</span>
+                            <span>🇮🇩 Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image" data-slide="2">
+                    <img src="asset/foto/monyet.jpg" alt="Monyet">
+                    <div class="hero-overlay">
+                        <h2>🐒 Primata Cerdas</h2>
+                        <p>Monyet hidup berkelompok dan pintar menggunakan alat.</p>
+                        <div class="hero-facts">
+                            <span>🧠 IQ tinggi</span>
+                            <span>👥 Sosial</span>
+                            <span>🌿 Hutan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image" data-slide="3">
+                    <img src="asset/foto/badak.jpg" alt="Badak">
+                    <div class="hero-overlay">
+                        <h2>🦏 Badak Jawa</h2>
+                        <p>Hewan langka dengan satu tanduk, terancam punah.</p>
+                        <div class="hero-facts">
+                            <span>🛡️ Dilindungi</span>
+                            <span>📍 Jawa</span>
+                            <span>⚠️ Endangered</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image" data-slide="4">
+                    <img src="asset/foto/harimau.jpg" alt="Harimau">
+                    <div class="hero-overlay">
+                        <h2>🐅 Harimau Sumatera</h2>
+                        <p>Kucing besar terkuat, pemangsa puncak hutan tropis.</p>
+                        <div class="hero-facts">
+                            <span>💨 60km/jam</span>
+                            <span>🦷 30 gigi</span>
+                            <span>🇮🇩 Sumatera</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- AR CONTAINER -->
+
+    <section class="container">
+        <div id="ar-container" class="ar-container-fixed">
+
+            <a-scene 
+            embedded mindar-image="imageTargetSrc:./asset/mind/hewan.mind; maxTrack:5; uiScanning: no;"
+                vr-mode-ui="enabled: false" 
+                device-orientation-permission-ui="enabled: false"
+                gesture-detector>
+
+                <a-light type="ambient" intensity="1"></a-light>
+                <a-light type="directional" position="0 1 1" intensity="1"></a-light>
+
+                <a-assets>
+                    <audio id="badakSound" src="./asset/audio/badak.mp3"></audio>
+                    <audio id="gajahSound" src="./asset/audio/gajah.mp3"></audio>
+                    <audio id="harimauSound" src="./asset/audio/harimau.mp3"></audio>
+                    <audio id="komodoSound" src="./asset/audio/komodo.mp3"></audio>
+                    <audio id="monyetSound" src="./asset/audio/monyet.mp3"></audio>
+
+                    <a-asset-item id="badak" src="./asset/3D_model/badak.glb"></a-asset-item>
+                    <a-asset-item id="gajah" src="./asset/3D_model/gajah.glb"></a-asset-item>
+                    <a-asset-item id="harimau" src="./asset/3D_model/harimau.glb"></a-asset-item>
+                    <a-asset-item id="komodo" src="./asset/3D_model/komodo.glb"></a-asset-item>
+                    <a-asset-item id="monyet" src="./asset/3D_model/monyet.glb"></a-asset-item>
+                </a-assets>
+
+                <a-camera position="0 0 0" look-controls="enabled: true"></a-camera>
+
+                <!-- TARGET 0 -->
+                <a-entity mindar-image-target="targetIndex:0">
+                    <a-entity 
+                    gltf-model="#badak" 
+                    class="clickable" 
+                    scale="1 1 1" 
+                    data-dsc="Badak adalah hewan besar bercula yang memiliki kulit tebal seperti pelindung. Salah satu jenisnya, badak Jawa, termasuk hewan yang sangat langka dan terancam punah. Badak hidup di hutan dan sangat penting untuk menjaga keseimbangan lingkungan."
+                    data-title="Badak" 
+                    sound="src: #badakSound; autoplay: false; volume: 1"
+                    gesture-handler>
+                    </a-entity>
+                </a-entity>
+
+                <!-- TARGET 1 -->
+                <a-entity mindar-image-target="targetIndex:1">
+                    <a-entity 
+                    gltf-model="#gajah" 
+                    scale="1 1 1 " 
+                    class="clickable" 
+                    data-dsc="Gajah adalah mamalia darat terbesar yang dikenal dengan belalai panjang dan kecerdasannya. Hewan ini hidup berkelompok dan memiliki ingatan yang kuat. Gajah biasanya ditemukan di hutan dan padang rumput di Afrika dan Asia, serta berperan penting dalam menjaga keseimbangan ekosistem."
+                    data-title="Gajah" 
+                    sound="src: #gajahSound; autoplay: false; volume: 1"
+                    gesture-handler>
+                    </a-entity>
+                </a-entity>
+
+                <!-- TARGET 2 -->
+                <a-entity mindar-image-target="targetIndex:2">
+                    <a-entity 
+                    gltf-model="#harimau" 
+                    scale="1 1 1" 
+                    class="clickable" 
+                    data-dsc="Harimau adalah kucing besar yang kuat dan merupakan predator puncak di hutan. Harimau Sumatera adalah salah satu spesies yang berasal dari Indonesia dan terancam punah. Hewan ini berperan penting dalam menjaga populasi hewan lain agar tetap seimbang."
+                    data-title="Harimau" 
+                    sound="src: #harimauSound; autoplay: false; volume: 1"
+                    gesture-handler>
+                    </a-entity>
+                </a-entity>
+
+                <!-- TARGET 3 -->
+                <a-entity mindar-image-target="targetIndex:3">
+                    <a-entity 
+                    gltf-model="#komodo" 
+                    scale="3 3 3 " class="clickable" 
+                    data-dsc="Komodo adalah kadal terbesar di dunia yang berasal dari Indonesia, khususnya Pulau Komodo dan sekitarnya. Hewan ini memiliki gigitan beracun yang digunakan untuk melumpuhkan mangsa. Komodo hidup di daerah kering seperti savana dan termasuk hewan yang dilindungi."
+                    data-title="Komodo" 
+                    sound="src: #komodoSound; autoplay: false; volume: 1"
+                    gesture-handler>
+                    </a-entity>
+                </a-entity>
+
+                <!-- TARGET 4 -->
+                <a-entity mindar-image-target="targetIndex:4">
+                    <a-entity 
+                    gltf-model="#monyet" 
+                    scale="2 2 2" 
+                    class="clickable" 
+                    data-dsc="Monyet adalah primata yang dikenal cerdas dan hidup berkelompok. Mereka mampu menggunakan alat sederhana dan berkomunikasi satu sama lain. Habitatnya berada di hutan tropis, dan mereka memiliki peran penting dalam penyebaran biji tanaman."
+                    data-title="Monyet" 
+                    sound="src: #monyetSound; autoplay: false; volume: 1"
+                    gesture-handler>
+                    </a-entity>
+                </a-entity>
+            </a-scene>
+            <button id="playBtn">▶</button>
+
+        </div>
+    </section>
+    <!-- INFO -->
+    <section class="info" id="informasi">
+        <h3 id="info-title">Arahkan Kamera ke Marker</h3>
+        <p id="info-text"></p>
+    </section>
+    <!-- CREATOR SECTION -->
+    <section class="creator-section">
+        <div class="creator-header">
+            <h2>👨‍💻 Creator Team</h2>
+        </div>
+
+        <div class="creators-grid">
+            <div class="creator-card">
+                <div class="creator-photo">
+                    <img src="asset/foto/naqris.jpeg" alt="Naqris">
+                </div>
+                <div class="creator-info">
+                    <h3>Naqris Fatkhur Rozak</h3>
+                    <p class="nim">24EO60002</p>
+                </div>
+            </div>
+
+            <div class="creator-card">
+                <div class="creator-photo">
+                    <img src="asset/foto/qotun.jpeg" alt="nsa">
+                </div>
+                <div class="creator-info">
+                    <h3>Faiqotun Nisa</h3>
+                    <p class="nim">24EO10016</p>
+                </div>
+            </div>
+
+            <div class="creator-card">
+                <div class="creator-photo">
+                    <img src="asset/foto/sobri.jpeg" alt="sobri">
+                </div>
+                <div class="creator-info">
+                    <h3>Sobri Iqbal Sutiono</h3>
+                    <p class="nim">24EO10005</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER  -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Dunia Hewan AR. Dibuat dengan ❤️ untuk edukasi.</p>
+            <div class="footer-links">
+                <a href="https://github.com/NFR-glitch/Web-AR.git" target="_blank" class="github-link">
+                    📂 GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="asset/script/ar.js"></script>
+</body>
+
+</html>
