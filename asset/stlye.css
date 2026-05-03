@@ -552,3 +552,139 @@ body {
   }
 }
 
+/* ===== MOBILE RESPONSIVE (HP) ===== */
+@media (max-width: 480px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  /* HEADER */
+  .jumbotron {
+    padding: 2rem 1rem;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .jumbotron h1 {
+    font-size: 1.8rem;
+  }
+
+  .jumbotron p {
+    font-size: 1rem;
+  }
+
+  /* CAROUSEL */
+  .carousel-section {
+    padding: 1rem;
+  }
+
+  .carousel-wrapper {
+    height: 350px;
+  }
+
+  .carousel-slide {
+    max-width: 90%;
+  }
+
+  .carousel-dots {
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .dot {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  /* HERO IMAGE */
+  .hero-image-container {
+    height: 350px;
+    border-radius: 20px;
+  }
+
+  .hero-overlay {
+    padding: 1.5rem;
+  }
+
+  .hero-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .hero-facts span {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* AR SECTION */
+  .ar-container-fixed {
+    height: 50vh !important;
+    min-height: 300px !important;
+    border-radius: 15px;
+  }
+
+  #playBtn {
+    font-size: 18px;
+    padding: 10px 14px;
+  }
+
+  /* INFO */
+  .info {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .info h3 {
+    font-size: 1.5rem;
+  }
+
+  #info-text {
+    font-size: 1rem;
+  }
+
+  /* CREATOR */
+  .creator-section {
+    padding: 3rem 1rem;
+    margin: 2rem 0.5rem;
+  }
+
+  .creator-header h2 {
+    font-size: 2rem;
+  }
+
+  .creator-header p {
+    font-size: 1rem;
+  }
+
+  .creator-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .creator-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .nim {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+
+  .github-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
